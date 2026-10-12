@@ -1,0 +1,17 @@
+[project]
+name = "week-03-buffon"
+version = "0.1.0"
+description = "Buffon's needle experiment: estimate pi from real simulations and rebuild a LaTeX report."
+readme = "README-materials.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "matplotlib>=3.8",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
