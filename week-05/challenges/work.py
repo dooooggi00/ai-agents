@@ -10,7 +10,18 @@ def summarize_values(values):
     空输入返回 {"unique": [], "counts": {}, "repeated": set()}。
     每次调用产生独立结果，结果中的列表、字典、集合可以单独修改。
     """
-    raise NotImplementedError("请实现 summarize_values")
+    unique = []
+    counts = {}
+
+    for value in values:
+        if value not in counts:
+            unique.append(value)
+            counts[value] = 1
+        else:
+            counts[value] += 1
+
+    repeated = {value for value, count in counts.items() if count > 1}
+    return {"unique": unique, "counts": counts, "repeated": repeated}
 
 
 def apply_changes(original, updates, removals):
